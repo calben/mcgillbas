@@ -44,7 +44,7 @@ def scrape_data(url, username, password, search_name, attributes, sensor_pairlis
 		print(browser)
 	if(write_to_local):
 		output = open(("dataset--" + '{0:%Y-%m-%d %Hh %Mm}'.format(datetime.datetime.now())) + ".csv", "w")
-		output.write("time, sensor, deviceid, value")
+		output.write("time, sensor, deviceid, value\n")
 	samples = 0
 	while 1:
 		for sensor_pair in sensor_pairlist:
