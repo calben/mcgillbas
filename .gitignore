@@ -1,0 +1,4 @@
+*.pyc
+*.csv
+**/config.json
+venv/
