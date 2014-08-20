@@ -38,7 +38,7 @@ def login(url, username, password):
 	return br
 
 
-def scrape_data(url, username, password, search_name, attributes, sensor_pairlist, samples_limit = None, sleep_time = 3, secondary_sleep_time = 30):
+def scrape_data(url, username, password, search_name, attributes, sensor_pairlist, samples_limit = None, sleep_time = 10, secondary_sleep_time = 120):
 	browser = login(url, username, password)
 	if(verbose):
 		print(browser)
