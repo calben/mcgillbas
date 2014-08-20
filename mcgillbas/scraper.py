@@ -38,7 +38,7 @@ def login(url, username, password):
 	return br
 
 
-def scrape_data(url, username, password, search_name, attributes, sensor_pairlist, samples_limit = 5, sleep_time = 3, secondary_sleep_time = 30):
+def scrape_data(url, username, password, search_name, attributes, sensor_pairlist, samples_limit = None, sleep_time = 3, secondary_sleep_time = 30):
 	browser = login(url, username, password)
 	if(verbose):
 		print(browser)
@@ -51,8 +51,9 @@ def scrape_data(url, username, password, search_name, attributes, sensor_pairlis
 			output.write(",".join([sensor_pair[0], sensor_pair[1], get_current_value(browser, url, url_addons[sensor_pair[2]], sensor_pair)]) + "\n")
 			time.sleep(sleep_time)
 		samples += 1
-		if(samples > samples_limit):
-			break
+		if(samples_limit not None):
+			if(samples > samples_limit):
+				break
 		time.sleep(secondary_sleep_time)
 
 
