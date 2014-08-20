@@ -51,7 +51,7 @@ def scrape_data(url, username, password, search_name, attributes, sensor_pairlis
 			output.write(",".join([sensor_pair[0], sensor_pair[1], get_current_value(browser, url, url_addons[sensor_pair[2]], sensor_pair)]) + "\n")
 			time.sleep(sleep_time)
 		samples += 1
-		if(samples_limit not None):
+		if(samples_limit is not None):
 			if(samples > samples_limit):
 				break
 		time.sleep(secondary_sleep_time)
