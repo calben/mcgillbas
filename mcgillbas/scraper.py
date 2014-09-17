@@ -48,7 +48,7 @@ def scrape_data(url, username, password, search_name, attributes, sensor_pairlis
 	samples = 0
 	while 1:
 		for sensor_pair in sensor_pairlist:
-			output.write(",".join([sensor_pair[0], sensor_pair[1], get_current_value(browser, url, url_addons[sensor_pair[2]], sensor_pair)]) + "\n")
+			output.write(",".join([round(time.time()),sensor_pair[0], sensor_pair[1], get_current_value(browser, url, url_addons[sensor_pair[2]], sensor_pair)]) + "\n")
 			time.sleep(sleep_time)
 		samples += 1
 		if(samples_limit is not None):
